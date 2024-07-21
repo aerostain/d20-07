@@ -13,14 +13,17 @@ maps0 %>% str()
 
 maps0 %>%
   group_by(SEDEOPERAT) %>%
-  summarise(N = n())
+  summarise(N = n()) %>%
+  as.data.frame() %>%
+  select(SEDEOPERAT, N)
 
 maps0f <-
   maps0 %>%
   filter(SEDEOPERAT %in%
     c(
       "LIMA", "ANCASH - CHIMBOTE",
-      "ANCASH - HUARAZ", "HUANUCO"
+      "ANCASH - HUARAZ", "HUANUCO",
+      "CUSCO", "TACNA"
     ))
 
 leaflet() %>%
@@ -28,5 +31,9 @@ leaflet() %>%
   addPolygons(
     data = maps0f,
     popup = maps0f$SEDEOPERAT,
-    color = c("red", "green", "blue", "yellow")
+    color = c(
+      "red", "green",
+      "blue", "yellow",
+      "orange", "cyan"
+    )
   )
