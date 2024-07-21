@@ -1,0 +1,10 @@
+body{
+  background-color: gray;
+  color: yellow;
+}
+
+#map{
+  height: 600px;
+  width: 1200px;
+  background-color: aquamarine;
+}
